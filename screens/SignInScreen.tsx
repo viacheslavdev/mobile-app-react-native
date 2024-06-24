@@ -33,13 +33,10 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
 
       if (response.status === 200) {
-        console.log(response.data);
         
         const { token } = response.data;
         dispatch(setToken(token));
         dispatch(setUser({ name: response.data.username, email: response.data.email, secondName: response.data.lastName }));
-
-        console.log(data.username, data.password);
         
         dispatch(fetchPosts())
 

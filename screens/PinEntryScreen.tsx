@@ -27,7 +27,6 @@ const PinEntryScreen: React.FC<PinEntryScreenProps> = ({ navigation }) => {
             const storedPin = await SecureStore.getItemAsync('pin');
             if (storedPin) {
                 setPinExists(true);
-                console.log(storedPin);
             }
         }
         pinAvailable();

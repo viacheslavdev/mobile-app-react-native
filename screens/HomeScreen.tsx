@@ -18,6 +18,7 @@ type HomeScreenProps = {
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   const posts = useSelector((state: RootState) => state.posts);
+  const user = useSelector((state: RootState) => state.auth)
   const dispatch = useDispatch<AppDispatch>();
 
 
@@ -36,7 +37,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       <LinearGradient colors={['#F8AE78', '#FA8A34']} style={styles.gradient} start={{ x: 0, y: 0 }}
         end={{ x: 0, y: 1 }}
         locations={[0, 0.25]} >
-        <Text style={styles.text}>Home Screen</Text>
+        <Text style={styles.desc}>Your name</Text>
+        <Text style={styles.text}>{user.user?.name} {user.user?.secondName}</Text>
       </LinearGradient>
       <View style={styles.taskWrapper}>
         <TouchableOpacity style={styles.task}>
@@ -98,9 +100,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F3F5',
   },
   text: {
-    fontSize: 20,
+    fontSize: 28,
     color: '#fff',
+    lineHeight: 32,
+    fontWeight: 'bold'
   },
+  desc: {
+    fontSize: 13,
+    lineHeight: 16,
+    color: 'white',
+    marginBottom: 8
+  }, 
   gradient: {
     width: '100%',
     height: 296,

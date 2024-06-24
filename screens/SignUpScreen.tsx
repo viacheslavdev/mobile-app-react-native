@@ -24,7 +24,6 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({navigation}) => {
 
   const onSubmit = async (data: any) => {
     const { name, email } = data
-    console.log(name, email);
     dispatch(setUser({name: name, email: email}))
     navigation.navigate('PinEntry')
     dispatch(fetchPosts())
